@@ -103,6 +103,14 @@ DATABASES = {
     }
 }
 
+AUTH_USER_MODEL = "api.CustomUser"
+
+AUTHENTICATION_BACKENDS = [
+    "api.backends.PhoneOrEmailBackend",  # custom backend
+    "django.contrib.auth.backends.ModelBackend",  # default backend
+]
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators

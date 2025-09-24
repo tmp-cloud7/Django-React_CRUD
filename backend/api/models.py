@@ -1,5 +1,13 @@
+from django.contrib.auth.models import AbstractUser
+from django.conf import settings
 from django.db import models
-from django.contrib.auth.models import User
+
+class CustomUser(AbstractUser):
+    phone = models.CharField(max_length=15, unique=True, null=True, blank=True)
+
+    def __str__(self):
+        return self.username or self.phone
+
 
 # Create your models here.
 
@@ -14,7 +22,7 @@ class Record(models.Model):
     state = models.CharField(max_length=200)
     country = models.CharField(max_length=125)
     picture = models.ImageField(upload_to="uploads/records/", blank=True, null=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="records")
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="records")
 
     def __str__(self):
         return self.first_name + "   " + self.last_name
