@@ -1,5 +1,7 @@
 import react from "react"
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
+import Navbar from "./components/Navbar"
+import LandingPage from "./pages/LandingPage"
 import Login from "./pages/Login"
 import Register from "./pages/Register"
 import Home from "./pages/Home"
@@ -22,10 +24,12 @@ function RegisterAndLogout() {
 function App() {
   return (
      <BrowserRouter>
+      <Navbar />
       <Routes>
+         <Route path="/" element={<LandingPage />} />
         {/* Protected section */}
         <Route element={<ProtectedRoute />}>
-          <Route path="/" element={<Home />} />
+          <Route path="/records" element={<Home />} />
           <Route path="/records/create" element={<CreateRecordForm />} />
           <Route path="/records/:id" element={<RecordDetail />} />
           <Route path="/records/:id/edit" element={<EditRecordForm />} />
