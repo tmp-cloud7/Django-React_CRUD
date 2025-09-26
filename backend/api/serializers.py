@@ -16,6 +16,7 @@ class UserSerializer(serializers.ModelSerializer):
         return user
 
 class RecordSerializer(serializers.ModelSerializer):
+    class Meta:
         model = Record
         fields =  ["id", "creation_date", "first_name", "last_name", "email", "phone", "address", "city", "state", "country", "picture", "user"]
         extra_kwargs = {"user": {"read_only": True} }

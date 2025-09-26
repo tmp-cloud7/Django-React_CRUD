@@ -21,24 +21,21 @@ function RegisterAndLogout() {
 
 function App() {
   return (
-    <BrowserRouter>
+     <BrowserRouter>
       <Routes>
-          <Route
-            path="/"
-            element={
-              <ProtectedRoute>
-                <Home />
-                <Route path="/records/create" element={<CreateRecordForm />} />
-                <Route path="/records/:id" element={<RecordDetail />} />
-                <Route path="/records/:id/edit" element={<EditRecordForm />} />
-              </ProtectedRoute>
-            }
-          />
-          <Route path="/login" element={<Login />} />
-          <Route path="/logout" element={<Logout />} />
-          <Route path="/register" element={<RegisterAndLogout />} />
-          <Route path="*" element={<NotFound />}>
-          </Route>
+        {/* Protected section */}
+        <Route element={<ProtectedRoute />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/records/create" element={<CreateRecordForm />} />
+          <Route path="/records/:id" element={<RecordDetail />} />
+          <Route path="/records/:id/edit" element={<EditRecordForm />} />
+        </Route>
+
+        {/* Public section */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
+        <Route path="/register" element={<RegisterAndLogout />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   )
