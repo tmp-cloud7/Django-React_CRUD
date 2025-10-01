@@ -45,9 +45,10 @@ function Navbar() {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        {/* Navbar links */}
+        {/* Navbar content */}
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul className="navbar-nav ms-3">
+          {/* Left side links */}
+          <ul className="navbar-nav me-auto">
             <li className="nav-item">
               <a
                 className="nav-link"
@@ -74,7 +75,7 @@ function Navbar() {
               </>
             )}
 
-            {!isAuthenticated ? (
+            {!isAuthenticated && (
               <>
                 {location.pathname !== "/login" && (
                   <li className="nav-item">
@@ -91,24 +92,27 @@ function Navbar() {
                   </li>
                 )}
               </>
-            ) : (
-              <>
-                <li className="nav-item">
-                  <span className="nav-link text-light fw-bold">
-                    👤 {username}
-                  </span>
-                </li>
-                <li className="nav-item">
-                  <button
-                    className="btn btn-link nav-link text-danger"
-                    onClick={handleLogout}
-                  >
-                    Logout
-                  </button>
-                </li>
-              </>
             )}
           </ul>
+
+          {/* Right side (auth controls) */}
+          {isAuthenticated && (
+            <ul className="navbar-nav ms-auto">
+              <li className="nav-item d-flex align-items-center">
+                <span className="nav-link text-light fw-bold">
+                  👤 {username}
+                </span>
+              </li>
+              <li className="nav-item">
+                <button
+                  className="btn btn-link nav-link text-danger"
+                  onClick={handleLogout}
+                >
+                  Logout
+                </button>
+              </li>
+            </ul>
+          )}
         </div>
       </div>
     </nav>
