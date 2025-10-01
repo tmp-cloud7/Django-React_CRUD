@@ -17,7 +17,7 @@ function RecordDetail() {
         api.delete(`/api/records/${id}/`)
             .then(() => {
                 alert("Record deleted!");
-                navigate("/");
+                navigate("/records");
             })
             .catch((err) => alert(err));
     };

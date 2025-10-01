@@ -188,7 +188,7 @@ function EditRecordForm() {
                 <button type="submit" className="btn btn-success">
                 Update Record
                 </button>
-                <button type="button" className="btn btn-secondary ms-2" onClick={() => navigate(-2)}>
+                <button type="button" className="btn btn-secondary ms-2" onClick={() => navigate("/records")}>
                 Cancel
                 </button>
             </form>

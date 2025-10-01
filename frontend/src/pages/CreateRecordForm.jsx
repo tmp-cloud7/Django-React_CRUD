@@ -30,6 +30,9 @@ function CreateRecordForm() {
 
         const data = new FormData();
         for (let key in formData) {
+            if (key === "picture" && !formData.picture) {
+            continue; 
+        }
             data.append(key, formData[key]);
         }
 
