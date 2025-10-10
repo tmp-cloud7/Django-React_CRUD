@@ -71,6 +71,7 @@ function EditRecordForm() {
                 onSubmit={handleSubmit}
                 encType="multipart/form-data"
                 className="p-4 border rounded shadow-sm bg-light"
+                autocomplete="off"
             >
                 <div className="row">
                 <div className="col-md-6 mb-3">

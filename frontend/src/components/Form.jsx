@@ -13,7 +13,7 @@ function Form({ route, method }) {
   const [phone, setPhone] = useState("");        
   const [identifier, setIdentifier] = useState(""); 
   const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState({}); // ✅ store both frontend + backend validation errors
+  const [errors, setErrors] = useState({}); 
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
